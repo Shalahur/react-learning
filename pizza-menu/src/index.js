@@ -71,13 +71,14 @@ function Menu() {
 		<main className='menu'>
 			<h2>Our menu</h2>
 			{
-				pizzaCount > 0 && (
+				pizzaCount > 0 ? (
 					<ul className="pizzas">
 						{pizzaData.map((item, index) => (
 							<Pizza pizzaObj={item} key={item.name}/>
 						))}
 					</ul>
-				)}
+				) : (<p>we're still working on our menu. Please come back later.</p>)
+			}
 		</main>);
 }
 
@@ -103,14 +104,14 @@ function Footer() {
 
 	return (
 		<footer className="footer">{
-			isOpen && (
+			isOpen ? (
 				<div className="order">
 					<p>
 						we're open until {closeHour}:00. Come visit us or order.
 					</p>
 					<button className="btn">Order</button>
 				</div>
-			)
+			) : (<p>we are happy to welcome you between {openHour} and {closeHour}</p>)
 		}</footer>
 	);
 	// return React.cre ateElement("footer", null, "We are currently open!");
